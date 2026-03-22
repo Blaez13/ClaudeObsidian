@@ -1,0 +1,12 @@
+{
+  "allowedTools": [
+    "Read",
+    "Write",
+    "Bash(npm:*)",
+    "Bash(git:*)",
+    "Bash(firebase:*)",
+    "Bash(gcloud:*)",
+    "Bash(ollama:*)",
+    "Bash(npx:*)"
+  ]
+}

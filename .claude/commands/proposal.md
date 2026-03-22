@@ -16,5 +16,9 @@ Save output to:
 - `10-stellaris-ridge/proposals/[client-name]-proposal-[date].md`
 - Note the file path in `10-stellaris-ridge/_active-projects.md`
 
+Also:
+- Generate a one-pager version saved as `[client-name]-proposal-[date]-onepager.md`
+- Offer to create a PowerPoint presentation version
+
 Quality standard: This goes to a client. Run through Sage-level quality check before
 saving (would this embarrass us? is it specific enough? does it solve THEIR problem?).
