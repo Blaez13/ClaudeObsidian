@@ -1,0 +1,24 @@
+# Never commit API keys or secrets
+.env
+.env.local
+*.env
+secrets.md
+api-keys.md
+
+# Obsidian workspace files (local only)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Attachments that are too large for git
+_attachments/*.mp4
+_attachments/*.mov
+_attachments/*.zip
+
+# Temp files
+*.tmp
+*.bak
