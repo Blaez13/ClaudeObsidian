@@ -9,6 +9,9 @@ api-keys.md
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 
+# Obsidian plugin data (may contain API keys)
+.obsidian/plugins/
+
 # OS files
 .DS_Store
 Thumbs.db
