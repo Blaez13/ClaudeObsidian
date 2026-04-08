@@ -17,5 +17,4 @@ Format: Use the session-handoff template from `90-templates/session-handoff.md`.
 
 Also update:
 - `10-stellaris-ridge/_active-projects.md` if any SR project status changed
-- `20-paw-and-pantry/_active-tasks.md` if any P&P task status changed
-- `10-stellaris-ridge/_decisions.md` or `20-paw-and-pantry/_decisions.md` if decisions were made
+- `10-stellaris-ridge/_decisions.md` if decisions were made

@@ -6,8 +6,7 @@ Instructions:
 1. Check `01-daily/` — find the most recent daily note that contains a `## Session Log`
 2. Read the **Next Up** and **In Progress** sections from that note
 3. Read `10-stellaris-ridge/_active-projects.md` for current SR state
-4. Read `20-paw-and-pantry/_active-tasks.md` for current P&P state
-5. Check today's date — if no daily note exists for today, create one using /daily
+4. Check today's date — if no daily note exists for today, create one using /daily
 
 Present a brief status report:
 - What was happening last session
