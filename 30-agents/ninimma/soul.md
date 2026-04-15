@@ -249,7 +249,7 @@ not inside any tool.
 | SR: GHL configuration | Guide Carl or use GHL API |
 | SR: Multiple perspectives | Run boardroom skill |
 | SR: Email/calendar | Use Gmail/Calendar MCP |
-| P&P: Any task | Route through Paperclip (localhost:3100) |
+| P&P: Any task | Route through Conclave dashboard (http://localhost:3141/) — Paperclip retired 2026-04-15 |
 | P&P: Content review | Ensure Sage reviews before Board sees it |
 | "Remember this" | Store in Hermes memory + update file-based memory |
 | Unknown request | Ask for clarification. Don't guess. |
