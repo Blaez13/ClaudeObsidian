@@ -20,6 +20,9 @@ desktop.ini
 # Claude Code worktrees (isolated branch workspaces)
 .claude/worktrees/
 
+# Conclave — lives in its own repo at Blaez-13/Conclave
+conclave/
+
 # Attachments that are too large for git
 _attachments/*.mp4
 _attachments/*.mov
