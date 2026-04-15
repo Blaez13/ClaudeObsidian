@@ -191,6 +191,14 @@ queued → running → done / failed
 - Given an assistant reply, extract all `@agent: instruction` delegations
 - For each: verify agent exists in registry; if yes, create a task + fire-and-forget dispatch
 
+**Gemini auto-assign (added per Pack 4 spec + 2026-04-15 confirmation):**
+
+When a task is created via UI with `assigned_agent=null`, call a cheap Gemini model via Hermes (`hermes chat -q "<classification prompt>" --provider openrouter -m gemini/gemini-3-flash --quiet`) with a classifier prompt that includes each agent's role + the task description. Returns an agent_id; update the task. Fail-soft: if Gemini errors, task stays unassigned until user picks.
+
+**Stuck task recovery (added from Pack 4 spec):**
+
+In `_lifespan` on startup, `UPDATE tasks SET status='queued' WHERE status='running'`. Any task mid-flight when the process died comes back to the queue. One line, trivially worth it.
+
 **Auto-dispatch flow:**
 ```python
 # In orchestrator.handle(), AFTER persisting assistant reply:
@@ -280,7 +288,27 @@ Note: recursive handoffs (Katara delegates → Mech's reply delegates to Sokka) 
 
 ---
 
-## Task Group G — Retire Paperclip
+## Task Group G — Nin triage prompt + retire Paperclip
+
+**Nin as the Main/triage agent (confirmed 2026-04-15):**
+
+Update `agents/ninimma.yaml` system_prompt to a "delegate, don't execute" frame. She reads incoming requests, picks a specialist (Katara/Mech/Sokka), and `@-mentions` them with a concrete ask. She only answers directly when the question is genuinely hers (calendar, personal triage, quick yes/no). This matches Mark Kashef's "Main" pattern — the manager doesn't do the work, she routes it.
+
+**Prompt additions to ninimma.yaml:**
+```
+ROUTING RULES — when Carl sends a message, follow this hierarchy:
+1. If it's a marketing / sales / ads / reputation / GEO / content question → @katara: <full instruction>
+2. If it's a tech / infra / deployment / architecture question → @mech: <full instruction>
+3. If it's a finance / legal / pricing / ROI / budget question → @sokka: <full instruction>
+4. If it's calendar / reminder / personal triage / "where's the X document" → answer yourself
+5. If ambiguous → ask Carl one clarifying question before routing
+
+NEVER execute specialist work yourself. Your value is triage speed, not breadth.
+When you delegate, write the @mention + instruction in your reply. Conclave's
+orchestrator auto-dispatches and tracks the task for you.
+```
+
+**Paperclip retirement chores:**
 
 **Chores:**
 - `grep -rn "localhost:3100" c:/Stellaris/` — find references
