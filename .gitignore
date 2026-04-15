@@ -17,6 +17,9 @@ api-keys.md
 Thumbs.db
 desktop.ini
 
+# Claude Code worktrees (isolated branch workspaces)
+.claude/worktrees/
+
 # Attachments that are too large for git
 _attachments/*.mp4
 _attachments/*.mov
