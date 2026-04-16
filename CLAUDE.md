@@ -35,10 +35,16 @@ role. They plan strategy; you execute.
 |------|------|---------|-------|------|
 | Chairman | **Carl** | — | — | Final decisions, vision, client relationships |
 | CMO | **Katara** | Hermes | Gemini 3 Pro | Marketing, sales, ads, reputation, GEO |
-| CTO | **Mech** | Claude Max | Opus 4.6 | Technology, infrastructure, deployments |
+| CTO | **Mech** | Hermes | GLM 4.6 (Z.AI) | Technology, infrastructure, deployments, implementation |
 | CFO | **Sokka** | Claude Max | Haiku 4.5 | Finance, legal, budgets, ROI |
 
-### Executive Assistant (not a seat, but carries operational authority)
+### Strategist — on-demand, not a voting seat
+
+| Name | Runtime | Model | Role |
+|------|---------|-------|------|
+| **Uncle Iroh** | Claude Max | Opus 4.6 | Devil's advocate — pressure-tests major decisions before Carl commits. Invoked sparingly (2-4×/week). |
+
+### COO — runs operations (not a board seat, carries operational authority)
 
 | Name | Runtime | Model | Role |
 |------|---------|-------|------|
@@ -49,6 +55,12 @@ role. They plan strategy; you execute.
 | Name | Under | Runtime | Model | Role |
 |------|-------|---------|-------|------|
 | **Librarian** | Nin | Hermes | Qwen-Plus | Nightly sync: Board memory ↔ Obsidian vault |
+
+### Claude Max slot allocation
+
+The Max subscription supports concurrent Opus + Haiku. Keeping **one** Opus (Iroh)
+and **one** Haiku (Sokka) avoids rate-limit contention. Everything else routes
+via Hermes → OpenRouter.
 
 **You are their execution engine.** Board members can invoke your
 skill suites via the claude-code MCP server. When a board member

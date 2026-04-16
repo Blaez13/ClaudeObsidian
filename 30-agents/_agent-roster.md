@@ -9,20 +9,28 @@ updated: 2026-04-15
 
 ## Board of Directors
 
-Carl holds the chair directly (as of 2026-04-15). Three executive agents sit alongside him. Ninimma is Executive Assistant, not a board seat, but carries real operational authority.
+Carl holds the chair directly. Three executive agents sit alongside him on the board.
 
 | Seat | Name | Runtime | Model | Provider | Role |
 |------|------|---------|-------|----------|------|
 | **Chairman** | **Carl** | human | — | — | Final decisions, vision, client relationships |
-| **CMO** | Katara | Hermes | Gemini 3 Pro | OpenRouter | All marketing — campaigns, content, ads, reputation, sales, GEO strategy |
-| **CTO** | Mech | Claude Max | Opus 4.6 | Anthropic | All technology — infrastructure, deployments, SEO technicals, Conclave, tooling |
-| **CFO** | Sokka | Claude Max | Haiku 4.5 | Anthropic | All finance — budgets, legal, ROI, pricing, cost tracking, compliance |
+| **CMO** | Katara | Hermes | Gemini 3 Pro | OpenRouter | Marketing, sales, ads, reputation, GEO |
+| **CTO** | Mech | Hermes | GLM 4.6 | Z.AI via OpenRouter | Tech / infra / deployments / implementation |
+| **CFO** | Sokka | Claude Max | Haiku 4.5 | Anthropic | Finance, legal, budgets, ROI |
 
-## Executive Assistant
+## Strategist (on-demand, not a voting seat)
 
 | Name | Runtime | Model | Provider | Role |
 |------|---------|-------|----------|------|
-| Ninimma (Nin) | Hermes | MiniMax 2.7 | OpenRouter | Triage + routing to board specialists; runs Librarian nightly; Carl's #2 for execution |
+| Uncle Iroh | Claude Max | Opus 4.6 | Anthropic | Devil's advocate — pressure-tests major decisions before Carl commits. Invoked sparingly. |
+
+## Chief Operating Officer
+
+Not a board seat, but carries real operational authority — triages everything, runs Librarian, manages execution pipeline.
+
+| Name | Runtime | Model | Provider | Role |
+|------|---------|-------|----------|------|
+| Ninimma (Nin) | Hermes | MiniMax 2.7 | OpenRouter | Triage + routing; runs Librarian nightly; Carl's #2 for execution |
 
 ## Sub-agents (background)
 
@@ -34,10 +42,18 @@ Carl holds the chair directly (as of 2026-04-15). Three executive agents sit alo
 
 | Tool | Runtime | Role |
 |------|---------|------|
-| Conclave dashboard | FastAPI (Windows) | Orchestration, task queue, hive mind, @-mention routing |
-| Claude Max CLI | Windows | Mech + Sokka invocations via `claude-agent-sdk` subprocess |
-| Hermes | WSL Ubuntu | Katara + Nin + Librarian — session history, Honcho memory, cron |
-| Claude Code (WSL) | WSL | Occasional WSL-side system work |
+| Conclave dashboard | FastAPI (Windows, :3141) | Orchestration, task queue, hive mind, @-mention routing |
+| Claude Max CLI | Windows | Sokka (Haiku) + Iroh (Opus) via `claude-agent-sdk` subprocess |
+| Hermes | WSL Ubuntu | Katara, Mech, Nin, Librarian — session history, Honcho memory, cron |
+
+## Claude Max slot allocation (avoid rate-limit contention)
+
+Max supports concurrent Opus + Haiku. We keep **one** of each:
+- **Opus 4.6** → Iroh (strategic, low-frequency)
+- **Haiku 4.5** → Sokka (finance checks, high-frequency)
+
+Everything else (Katara, Mech, Nin, Librarian) routes via Hermes → OpenRouter
+and has no contention.
 
 ## Claude Code Skill Suites (Windows — available to board via MCP)
 
@@ -54,12 +70,13 @@ Carl holds the chair directly (as of 2026-04-15). Three executive agents sit alo
 
 ## How It Works
 
-1. **Carl messages** — Discord (soon), Telegram (existing Hermes bots), or Conclave dashboard
-2. **Nin triages** — routes to specialist via `@katara` / `@mech` / `@sokka` mentions
-3. **Specialist answers or delegates** — claude-agent-sdk for Mech/Sokka, Hermes subprocess for Katara
-4. **Conclave tracks** — tasks table + hive activity log, surfaced on the dashboard
-5. **Librarian syncs** — nightly at 2am, Board decisions flow to vault, vault activity flows to Honcho
-6. **Carl reviews** — morning catch-up via dashboard Activity tab
+1. **Carl messages** — Telegram (existing Hermes bots), Conclave dashboard, or terminal
+2. **Nin triages** — routes to specialist via `@katara` / `@mech` / `@sokka` / `@iroh`
+3. **Specialist answers or delegates** — Claude SDK for Sokka/Iroh, Hermes subprocess for Katara/Mech/Nin
+4. **For major decisions: pull Iroh** — Mech writes `@iroh: pressure-test this plan` before committing wide-blast-radius changes
+5. **Conclave tracks** — tasks table + hive activity log, surfaced on dashboard
+6. **Librarian syncs** — nightly at 2am (Hermes cron), Board decisions → vault, vault activity → Honcho
+7. **Carl reviews** — morning catch-up via dashboard Activity tab
 
 ## Department Building
 
@@ -79,9 +96,9 @@ The following agents were part of the old P&P structure and are no longer active
 
 ## Retired Hermes Profiles (as of 2026-04-15)
 
-These Hermes profiles existed under the old structure but are no longer in active use. Kept for now (archive later):
+Archived at `~/.hermes/archive/profiles-2026-04-15/profiles/`:
 
-- `chairman` — was Nin's role pre-2026-04-13; Carl now holds the chair directly
-- `cto` — Mech is now Claude-native, not Hermes
-- `cfo` — Sokka is now Claude-native, not Hermes
-- `strategist` — was Uncle Iroh shell; TBD whether to resurrect as a proper agent
+- `chairman` — was Nin's role pre-2026-04-13
+- `cto` — Mech moved to Hermes's default profile + OpenRouter GLM
+- `cfo` — Sokka is now Claude Max (Hermes profile retired)
+- `strategist` — replaced by Uncle Iroh as a proper Claude-native agent
