@@ -85,12 +85,64 @@ These are the agency's core revenue-generating tools. Katara (CMO)
 directs most of them. Treat marketing/sales/GEO/ads/reputation
 execution as mission-critical.
 
+## Knowledge System (Karpathy LLM Wiki Pattern)
+
+This vault operates as a 3-layer knowledge base:
+
+### Layer 1 — Raw Sources (`raw/`)
+Immutable input documents: articles, PDFs, YouTube transcripts, client
+intake forms, competitor analyses. Drop files here; the Librarian
+(nightly cron) or a manual `/wiki ingest` processes them into wiki pages.
+Do NOT edit raw sources after ingestion.
+
+### Layer 2 — Wiki Pages (`wiki/`)
+LLM-maintained knowledge pages. Claude owns this layer — you read it,
+Claude writes it. Organized by type:
+
+| Folder | Page type | Example |
+|--------|-----------|---------|
+| `wiki/entities/` | People, companies, tools | `acme-plumbing.md` |
+| `wiki/concepts/` | Ideas, frameworks, models | `productized-service.md` |
+| `wiki/topics/` | Deep dives on subjects | `wisconsin-hvac-market.md` |
+| `wiki/sources/` | Summaries of ingested sources | `article-ai-agency-pricing.md` |
+| `wiki/synthesis/` | Cross-cutting analysis | `q2-positioning-review.md` |
+
+Legacy pages (`wiki/index.md`, `wiki/hot.md`, `wiki/log.md`) predate
+the subfolder structure — keep and reference but file new pages into
+the typed subfolders.
+
+### Layer 3 — Schema (this file)
+The rules you're reading now. Defines conventions, operations, and
+how new information flows through the system.
+
+### Wiki conventions
+- YAML frontmatter: `title`, `type`, `tags`, `sources`, `created`, `updated`
+- `[[Internal Links]]` for cross-references
+- Lowercase-hyphen filenames (`acme-plumbing.md`)
+- One idea per page, link generously
+- Update `wiki/index.md` on every ingest
+- Append to `wiki/log.md` on every operation
+
+### Three operations
+
+**Ingest** — Process a new source. Read `raw/<file>`, create/update wiki
+pages, update `wiki/index.md`, append to `wiki/log.md`.
+
+**Query** — Answer a question from wiki knowledge. Search wiki pages,
+synthesize with citations back to `[[page]]`. If the answer is valuable
+enough, file as a new `wiki/synthesis/` page.
+
+**Lint** — Maintenance pass. Check for contradictions between pages, find
+orphan pages with no inbound links, flag stale claims (>90 days without
+`updated` change), suggest missing cross-references.
+
 ## How to Use This Vault
 
 ### On Session Start
 1. Read this file (you're doing it now)
-2. Check `01-daily/` for today's note — it has current priorities
-3. Check `10-stellaris-ridge/_active-projects.md` for SR status
+2. Check `wiki/hot.md` for recent context (hot cache)
+3. Check `01-daily/` for today's note — it has current priorities
+4. Check `10-stellaris-ridge/_active-projects.md` for SR status
 
 ### During Work
 - Save deliverables to the appropriate folder
@@ -98,6 +150,8 @@ execution as mission-critical.
 - Log decisions to `_decisions.md` with date and rationale
 - When a client is mentioned, check `10-stellaris-ridge/clients/`
   for an existing brief
+- When researching, check `wiki/` first before crawling folders
+- When creating knowledge that should persist, file it as a wiki page
 
 ### On Session End
 Update today's daily note with what was accomplished, what's in
