@@ -92,7 +92,7 @@ Website visitor → clicks mic → WebSocket /ws/voice → Vox Middleware
 - **Vapi:** deprecated 2026-04-16. Key still in Secret Manager for rollback. Assistant `849c4f0b...` dormant.
 - **Twilio:** SID in Cloud Run env as `TWILIO_ACCOUNT_SID`, number `+12058318876`. Auth token in Secret Manager (`twilio-auth-token-vox`). Not committed to any note.
 - **ElevenLabs:** API key in `.env` locally + Secret Manager (`elevenlabs-api-key`). Tool webhook secret in Secret Manager (`elevenlabs-tool-secret`).
-- **GHL (Stellaris Ridge):** API key in Secret Manager (`ghl-api-key-stellaris-ridge`). Location `80RqmUCVcLG00OAD9H5k`, Calendar `7WG0IOzKeJJdO3ZOYcT6`.
+- **GHL (Stellaris Ridge):** API key in Secret Manager (`ghl-api-key-stellaris-ridge` v3). Location `fiPf1MrZRMc8fv7Ovyjp` (permanent site, Random Lake WI). Calendar `GOI2Z6zvP3845Sixq9GM` ("Free Consultation", created 2026-04-16, 30-min slots, Mon-Fri 9a-5p CT). Old trial site location `80RqmUCVcLG00OAD9H5k` and old calendar `7WG0IOzKeJJdO3ZOYcT6` are dead.
 - **Gemini:** API key in `.env` locally + Cloud Run env.
 - **Firebase/Firestore:** Uses Cloud Run service account (no API key needed).
 

@@ -9,6 +9,7 @@
 - [x] **Tool webhook end-to-end tested** — `/webhook/elevenlabs/tool/stellaris-ridge/check_availability` returns real GHL slots with correct `X-Vox-Tool-Secret`.
 - [x] **6 vertical demo clients** provisioned on ElevenLabs (auto_repair, hvac, contractor, dental, salon, professional_services) — all diagnostics green.
 - [x] **Broken demo-hvac archived** (had no services/FAQs/first-message).
+- [x] **GHL migration to permanent site** — new PIT (pit-8d53bbb6) stored in Secret Manager v3. New location `fiPf1MrZRMc8fv7Ovyjp` and new "Free Consultation" calendar `GOI2Z6zvP3845Sixq9GM` created via API. Cloud Run env + Firestore updated. Voice-bot redeployed as rev 45. End-to-end booking verified through ElevenLabs tool webhook (appointment `8pSFCMIai0hweP8JjwhX` — delete before launch).
 - [x] Memory updated, vault notes refreshed.
 
 ### Completed (earlier — 2026-03-31 through 2026-04-12)
