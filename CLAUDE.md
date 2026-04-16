@@ -42,7 +42,7 @@ role. They plan strategy; you execute.
 
 | Name | Runtime | Model | Role |
 |------|---------|-------|------|
-| **Uncle Iroh** | Claude Max | Opus 4.6 | Devil's advocate — pressure-tests major decisions before Carl commits. Invoked sparingly (2-4×/week). |
+| **Uncle Iroh** | Claude Max | Opus 4.6 | AI agency business strategist — offer design, positioning, pricing, portfolio shape. Pressure-tests plans from an industry-veteran lens. Invoked sparingly (2-4×/week). |
 
 ### COO — runs operations (not a board seat, carries operational authority)
 

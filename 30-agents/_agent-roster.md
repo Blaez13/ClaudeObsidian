@@ -22,7 +22,7 @@ Carl holds the chair directly. Three executive agents sit alongside him on the b
 
 | Name | Runtime | Model | Provider | Role |
 |------|---------|-------|----------|------|
-| Uncle Iroh | Claude Max | Opus 4.6 | Anthropic | Devil's advocate — pressure-tests major decisions before Carl commits. Invoked sparingly. |
+| Uncle Iroh | Claude Max | Opus 4.6 | Anthropic | **AI agency business strategist** — offer design, positioning, pricing, portfolio shape, what kills/scales small agencies. Not a tech/product/marketing specialist — he's the meta-level, industry-veteran voice that pressure-tests plans. Invoked sparingly. |
 
 ## Chief Operating Officer
 
