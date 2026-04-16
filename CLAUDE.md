@@ -35,7 +35,7 @@ role. They plan strategy; you execute.
 |------|------|---------|-------|------|
 | Chairman | **Carl** | — | — | Final decisions, vision, client relationships |
 | CMO | **Katara** | Hermes | Gemini 3 Pro | Marketing, sales, ads, reputation, GEO |
-| CTO | **Mech** | Hermes | GLM 4.6 (Z.AI) | Technology, infrastructure, deployments, implementation |
+| CTO | **Mech** | Hermes | GLM 5.1 (Z.AI direct) | Technology, infrastructure, deployments, implementation |
 | CFO | **Sokka** | Claude Max | Haiku 4.5 | Finance, legal, budgets, ROI |
 
 ### Strategist — on-demand, not a voting seat
@@ -54,7 +54,7 @@ role. They plan strategy; you execute.
 
 | Name | Under | Runtime | Model | Role |
 |------|-------|---------|-------|------|
-| **Librarian** | Nin | Hermes | Qwen-Plus | Nightly sync: Board memory ↔ Obsidian vault |
+| **Librarian** | Nin | Hermes | Qwen 3.6 Plus (DashScope) | Nightly sync: Board memory ↔ Obsidian vault |
 
 ### Claude Max slot allocation
 

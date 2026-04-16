@@ -15,7 +15,7 @@ Carl holds the chair directly. Three executive agents sit alongside him on the b
 |------|------|---------|-------|----------|------|
 | **Chairman** | **Carl** | human | — | — | Final decisions, vision, client relationships |
 | **CMO** | Katara | Hermes | Gemini 3 Pro | OpenRouter | Marketing, sales, ads, reputation, GEO |
-| **CTO** | Mech | Hermes | GLM 4.6 | Z.AI via OpenRouter | Tech / infra / deployments / implementation |
+| **CTO** | Mech | Hermes | GLM 5.1 | Z.AI (direct) | Tech / infra / deployments / implementation |
 | **CFO** | Sokka | Claude Max | Haiku 4.5 | Anthropic | Finance, legal, budgets, ROI |
 
 ## Strategist (on-demand, not a voting seat)
@@ -36,7 +36,7 @@ Not a board seat, but carries real operational authority — triages everything,
 
 | Name | Under | Runtime | Model | Role |
 |------|-------|---------|-------|------|
-| The Librarian | Nin | Hermes | Qwen-Plus | Nightly bidirectional sync: Board memory (Honcho) ↔ Obsidian vault |
+| The Librarian | Nin | Hermes | Qwen 3.6 Plus | Nightly bidirectional sync: Board memory (Honcho) ↔ Obsidian vault. Uses Alibaba DashScope direct (not OpenRouter). |
 
 ## Execution Engines
 
