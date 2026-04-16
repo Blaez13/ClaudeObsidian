@@ -38,10 +38,12 @@
 - [ ] **Multi-tenant isolation** — try one of the 6 vertical demos via widget with `?client=demo-birmingham-dental`
 
 ### Urgent Cleanup (do before next voice-bot commit)
-- [ ] **Rotate GHL API key** — `pit-00b3bfd3...` is in voice-bot git history (commit `ce1c20d` in `clients/stellaris-ridge.json`). Rotate, update Secret Manager, redeploy.
-- [ ] **Fix voice-bot git remote** — `https://github.com/Blaez-13/vox.git` returns 404. Verify org slug (Blaez-13 vs Blaez13) and repo existence.
-- [ ] **Tighten `.gitignore`** in voice-bot: add `clients/*.json`, `.firebase/`, `.ridge_agent_ref.json`, `.tools_ref.json`, `portal/` (if served separately by Firebase Hosting).
-- [ ] **Purge GHL key from git history** (git filter-branch or BFG Repo Cleaner) after rotation — any pre-rotation clone still has the key.
+- [x] ~~Rotate GHL API key~~ — **Done 2026-04-16.** Old trial-site key (`pit-00b3bfd3`) is dead (site retired). New PIT `pit-8d53bbb6` with full scopes in Secret Manager v3.
+- [ ] **Delete test appointment `8pSFCMIai0hweP8JjwhX`** in GHL — created by end-to-end test, "Vox Test — DELETE ME", tomorrow 9am.
+- [ ] **Fix voice-bot git creds** — repo `github.com/Blaez-13/vox` exists but local git uses `Blaez13` (personal) credentials. Sign in as Blaez-13 in Git Credential Manager, or generate a PAT under Blaez-13 with `repo` scope.
+- [ ] **Tighten `.gitignore`** in voice-bot before push: add `clients/*.json`, `.firebase/`, `.ridge_agent_ref.json`, `.tools_ref.json`.
+- [ ] **Push voice-bot to Blaez-13/vox** once creds are fixed — old dead key in history is harmless (trial site retired), so no history-purge needed.
+- [ ] **Update stellarisridge.com booking URL** — currently links to dead calendar `https://links.stellarisridge.com/widget/booking/7WG0IOzKeJJdO3ZOYcT6`. Get new public scheduler URL for calendar `GOI2Z6zvP3845Sixq9GM` from GHL and swap in.
 
 ### Post-Launch Cleanup (no rush)
 - [ ] Cancel Vapi subscription (phone already released, assistant dormant)
